@@ -1,0 +1,58 @@
+@import './variables.scss';
+
+.clients {
+    padding: 3rem 0;
+
+    .container {
+        text-align: center;
+
+        .title {
+            font-family: $font-Fraunces;
+            color: $darkgrayishblue;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 1.4rem;
+            // padding-bottom: 0.5rem;
+        }
+        .testimonials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .testimonial {
+                text-align: center;
+                max-width: 350px;
+                padding: 1rem;
+                padding-top: 2rem;
+                margin-bottom: 1rem;
+
+                .image {
+                    width: 4rem;
+                    height: 4rem;
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                .text {
+                    padding: 1.6rem 0;
+                    line-height: 1.7;
+                    font-size: 0.98rem;
+                }
+                .name {
+                    padding: 0;
+                    margin: 0;
+                    padding-bottom: 0.5rem;
+                }
+                .passion {
+                    padding: 0;
+                    margin: 0;
+                    color: $darkgrayishblue;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}

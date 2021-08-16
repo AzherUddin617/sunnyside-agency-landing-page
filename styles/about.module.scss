@@ -1,0 +1,102 @@
+@import './variables.scss';
+
+.about {
+    width: 100%;
+
+    .containers {
+        display: flex;
+        align-items: center;
+
+        &.bottom .container.textContainer .link::after {
+            background-color: $oftred;
+        }
+        .container {
+            flex: 0 0 50%;
+
+            &.textContainer {
+                padding: 0 6vw;
+
+                @media (min-width: 1921px) {
+                    padding: 0 40px;
+                }
+
+                .title {
+                    // font-size: 2.3rem;
+                    @include fluid-type(600px, 1440px, 24px, 40px);
+                    font-family: $font-Fraunces;
+                    // font-weight: 900;
+                    color: $verydarkdesaturatedblue;
+                    width: 80%;
+                }
+                .details {
+                    // opacity: 0.95;
+                    color: $darkgrayishblue;
+                    line-height: 1.6;
+                }
+                .link {
+                    font-family: $font-Fraunces;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    // letter-spacing: 0.5px;
+                    font-size: 0.8rem;
+                    position: relative;
+
+                    &::after {
+                        display: block;
+                        content: '';
+                        z-index: -1;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translate(-50%, 20%);
+                        width: 110%;
+                        height: 0.4rem;
+                        border-radius: 10rem;
+                        background-color: $Yellow;
+                        opacity: 0.4;
+                        transition: opacity 0.3s ease;
+                    }
+                    &:hover::after {
+                        opacity: 1;
+                    }
+                }
+            }
+            &.imageContainer {
+
+                div {
+                    display: block !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 865px) {
+    .about {
+        width: 100%;
+    
+        .containers {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-direction: column-reverse;
+    
+            &.bottom {
+                flex-direction: column;
+            }
+            .container {
+                flex: 0 0 100%;
+    
+                &.textContainer {
+                    padding: 10vh 6vw;
+                    text-align: center;
+    
+                    .title {
+                        font-size: 1.8rem;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

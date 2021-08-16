@@ -1,0 +1,63 @@
+@import './variables.scss';
+
+.footer {
+    padding: 3rem 0;
+    background-color: #90D4C5;
+
+    .container {
+        text-align: center;
+        color: $darkmoderatecyan-footer;
+        color: $darkdesaturatedcyan-graphicdesigntext;
+
+        .title {
+            font-family: $font-Barlow;
+            // font-family: $font-Fraunces;
+            font-weight: 900;
+            font-size: 1.8rem;
+            opacity: 0.8;
+        }
+        .nav {
+
+            .list {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .item {
+                    list-style-type: none;
+                    padding: 16px 0;
+                    margin-right: 4rem;
+                    // margin: 0 2rem;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    opacity: 0.9;
+                    transition: color 0.4s ease;
+
+                    &:hover {
+                        color: $white;
+                    }
+
+                    @media (max-width: 600px) {
+                        // margin: 0 5vw;
+                        margin-right: 10vw;
+                    }
+                }
+            }
+        }
+        .socials {
+            padding-top: 1rem;
+
+            .link {
+                margin: 0 1rem;
+                
+                &:hover svg path {
+                    fill: $white;
+                }
+
+                svg path {
+                    transition: fill 0.4s ease;
+                }
+            }
+        }
+    }
+}

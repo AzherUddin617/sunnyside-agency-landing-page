@@ -1,0 +1,40 @@
+
+// Primary
+$oftred: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$darkdesaturatedcyan-graphicdesigntext: hsl(167, 40%, 24%);
+$darkblue-photographytext: hsl(198, 62%, 26%);
+$darkmoderatecyan-footer: hsl(168, 34%, 41%);
+
+// Neutral
+$verydarkdesaturatedblue: hsl(212, 27%, 19%);
+$verydarkgrayishblue: hsl(213, 9%, 39%);
+$darkgrayishblue: hsl(232, 10%, 55%);
+$grayishblue: hsl(210, 4%, 67%);
+$white: hsl(0, 0%, 100%);
+
+$font-Barlow: 'Barlow', sans-serif;
+$font-Fraunces: 'Fraunces', serif;
+
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+  
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+            font-size: $min-font-size;
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}

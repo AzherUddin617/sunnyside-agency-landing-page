@@ -1,0 +1,212 @@
+@import './variables.scss';
+
+.hero {
+    height: 100vh;
+    background: url('../assets/images/desktop/image-header.jpg') bottom/cover no-repeat !important;
+    color: $white;
+
+    .list {
+        display: flex;
+        align-items: center;
+
+        .item {
+            list-style-type: none;
+            padding: 16px 0;
+            margin-left: 36px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .contact {
+            font-family: $font-Fraunces;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            color: $verydarkdesaturatedblue;
+            background-color: $white;
+            border-radius: 10rem;
+        }
+    }
+    .backdrop {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+        z-index: 5;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        cursor: pointer;
+
+        &.show {
+            opacity: 0.8;
+        }
+        &.hide {
+            z-index: -10;
+        }
+    }
+    .header {
+        padding: 36px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .nav {
+            
+            .menuBtn {
+                display: none;
+            }
+        }
+    }
+    .contents {
+        text-align: center;
+        padding-top: 4vh;
+        position: relative;
+        
+        .title {
+            text-transform: uppercase;
+            font-family: $font-Fraunces;
+            letter-spacing: 8px;
+            font-weight: 900;
+            padding-bottom: 1.8rem;
+            
+            $min_width: 320px;
+            $max_width: 1200px;
+            $min_font: 24px;
+            $max_font: 38px;
+            // @include fluid-type(720px, 1440px, 5rem, 10rem);
+            @include fluid-type($min_width, $max_width, $min_font, $max_font);
+        }
+        .arrowDown {
+            height: 120px;
+            animation: arrowDownAnim 2s ease-in infinite forwards;
+        }
+        .navMenu {
+            display: none;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: $white;
+            color: black;
+
+            transform: translateY(-10%);
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: 0.4s;
+
+            &.show {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            &.hide {
+                z-index: -10;
+            }
+
+            &::after {
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateY(-95%);
+                width: 35px;
+                height: 30px;
+                background-color: $white;
+                clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            }
+            .list {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 2rem;
+        
+                .item {
+                    padding: 0.5rem;
+                    margin-left: 0;
+                    margin: 0.5rem 0;
+                    font-weight: 500;
+                    opacity: 0.7;
+                    transition: opacity 0.4s ease;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+                .contact {
+                    padding: 12px 24px;
+                    color: $verydarkdesaturatedblue;
+                    background-color: $Yellow;
+                    margin-bottom: 1rem;
+                    margin-top: 0.5rem;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 665px) {
+    .hero {
+        height: 100vh;
+        background: url('../assets/images/mobile/image-header.jpg') bottom/cover no-repeat !important;
+        color: $white;
+    
+        .header {
+            padding: 36px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            .nav {
+                
+                .list {
+                    display: none;
+                }
+                .menuBtn {
+                    display: block;
+                    background: none;
+                    outline: none;
+                    border: none;
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 0;
+                    opacity: 0.7;
+                    transition: opacity 0.4s ease;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .contents {
+
+            .arrowLogo {
+                height: 50px;
+            }
+            .navMenu {
+                display: block;
+            }
+        }
+    }
+}
+
+@keyframes arrowDownAnim {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    15% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(80%);
+        opacity: 0;
+    }
+}

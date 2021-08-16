@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+.services {
+    
+    .containers {
+        display: flex;
+
+        .container {
+            flex: 0 0 50%;
+            position: relative;
+            
+            .imageContainer {
+                width: 100%;
+
+                div {
+                    display: block !important;
+                }
+                .image {
+                    // width: 100%;
+                }
+            }
+            .textContents {
+                position: absolute;
+                bottom: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+
+                &.left {
+                    color: $darkdesaturatedcyan-graphicdesigntext;
+                }
+                &.right {
+                    color: $darkblue-photographytext;
+                }
+
+                .title {
+                    font-family: $font-Fraunces;
+                }
+                .details {
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 920px) {
+    .services {
+        .containers {
+            display: block;
+
+            .container .textContents {
+                width: 80%;
+            }
+        }
+    }
+}
